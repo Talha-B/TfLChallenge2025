@@ -52,17 +52,3 @@ appsettings.json (or environment variables) is used for TfL settings. Example st
 ```
 
 Ensure appsettings.json is copied to output.
-
-## Design / assumptions
-
-**Target framework:** .NET 8 
-
-The Refit client (`ITflApi`) is registered via `AddRefitClient` and uses the platform HTTP resilience handler (`AddStandardResilienceHandler`) to handle transient faults and 429 responses.
-
-**RoadStatusService:**
-- Fetches data via `ITflApi`
-- Handles 404 as NotFound
-- Returns a `RoadStatusResult` (a small immutable DTO/record)
-- Uses a separate `IRoadStatusFormatter` for presentation
-
-**PlainTextRoadStatusFormatter** returns `string.Empty` for null input (formatter is presentation-only and should not throw)
