@@ -55,7 +55,7 @@ Ensure appsettings.json is copied to output.
 
 ## Design / assumptions
 
-**Target framework:** .NET 8
+**Target framework:** .NET 8 (or higher)
 
 The Refit client (`ITflApi`) is registered via `AddRefitClient` and uses the platform HTTP resilience handler (`AddStandardResilienceHandler`) to handle transient faults and 429 responses.
 
