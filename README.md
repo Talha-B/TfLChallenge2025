@@ -6,7 +6,7 @@ A .NET 8 console application that retrieves and displays live road status inform
 
 ## Prerequisites
 
-- .NET 8 SDK
+- .NET 8 SDK (or higher)
 
 ---
 
@@ -55,7 +55,7 @@ Ensure appsettings.json is copied to output.
 
 ## Design / assumptions
 
-**Target framework:** .NET 8 (or higher)
+**Target framework:** .NET 8 
 
 The Refit client (`ITflApi`) is registered via `AddRefitClient` and uses the platform HTTP resilience handler (`AddStandardResilienceHandler`) to handle transient faults and 429 responses.
 
