@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Polly;
@@ -9,6 +10,10 @@ using TfLChallenge.Formatters;
 using TfLChallenge.Services;
 
 var builder = Host.CreateApplicationBuilder(args);
+
+builder.Configuration.SetBasePath(AppContext.BaseDirectory);
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+builder.Configuration.AddEnvironmentVariables();
 
 var baseUrl = builder.Configuration["TflApi:BaseUrl"];
 var apiId = builder.Configuration["TflApi:Auth:Id"];
